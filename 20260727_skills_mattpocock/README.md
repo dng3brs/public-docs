@@ -66,7 +66,7 @@ Geminiチャットで質疑応答し、「画面要件」をmarkdownドキュメ
 以降はAntigravity CLIで進める
 
 ```
-/ui-ux-max-pro docs/画面要件-MAC管理.md
+/ui-ux-max-pro docs/画面要件-MAC一覧.md
 ```
 
 ### A 実装要件をADRとして生成
