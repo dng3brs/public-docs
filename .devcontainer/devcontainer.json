@@ -1,0 +1,11 @@
+{
+  "name": "public-docs",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+  "workspaceMount": "source=.,target=/workspaces,type=bind,consistency=cached",
+  "workspaceFolder": "/workspaces",
+  "customizations": {
+  }
+}
