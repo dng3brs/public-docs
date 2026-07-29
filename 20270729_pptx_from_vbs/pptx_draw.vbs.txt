@@ -1,0 +1,288 @@
+Set pptApp = GetObject(, "PowerPoint.Application")
+Set sld = pptApp.ActiveWindow.View.Slide
+
+sw = pptApp.ActivePresentation.PageSetup.SlideWidth
+sh = pptApp.ActivePresentation.PageSetup.SlideHeight
+
+Const msoTrue = -1
+Const msoFalse = 0
+Const msoShapeRectangle = 1
+Const msoShapeRoundedRectangle = 5
+Const msoAnchorMiddle = 3
+Const ppAlignCenter = 2
+Const ppAlignLeft = 1
+
+margin_x = sw * 0.035
+content_w = sw * 0.93
+
+Set bgShape = sld.Shapes.AddShape(msoShapeRectangle, 0, 0, sw, sh)
+bgShape.Fill.Solid
+bgShape.Fill.ForeColor.RGB = RGB(248, 249, 250)
+bgShape.Line.Visible = msoFalse
+bgShape.ZOrder 1
+
+Set titleBox = sld.Shapes.AddTextbox(1, margin_x, sh * 0.025, content_w, sh * 0.065)
+Set trTitle = titleBox.TextFrame.TextRange
+trTitle.Text = "MCP vs Skills 比較ガイド"
+trTitle.Font.Name = "BIZ UDゴシック"
+trTitle.Font.Size = 18
+trTitle.Font.Bold = msoTrue
+trTitle.Font.Color.RGB = RGB(15, 23, 42)
+titleBox.TextFrame.MarginLeft = 0
+titleBox.TextFrame.MarginTop = 0
+
+Set msgingBox = sld.Shapes.AddShape(msoShapeRoundedRectangle, margin_x, sh * 0.09, content_w, sh * 0.065)
+msgingBox.Fill.Solid
+msgingBox.Fill.ForeColor.RGB = RGB(255, 247, 237)
+msgingBox.Line.ForeColor.RGB = RGB(253, 186, 116)
+msgingBox.Line.Weight = 1.2
+
+Set trMsg = msgingBox.TextFrame.TextRange
+trMsg.Text = "【メインメッセージ】 MCPは『標準化された接続プロトコル』、Skillsは『特定の振る舞いや手順の拡張機能』であり、両者は対立するものではなく補完関係にある"
+trMsg.Font.Name = "BIZ UDゴシック"
+trMsg.Font.Size = 10
+trMsg.Font.Bold = msoTrue
+trMsg.Font.Color.RGB = RGB(194, 65, 12)
+trMsg.ParagraphFormat.Alignment = ppAlignCenter
+msgingBox.TextFrame.VerticalAnchor = msoAnchorMiddle
+msgingBox.TextFrame.MarginLeft = 10
+msgingBox.TextFrame.MarginRight = 10
+
+tblLeft = margin_x
+tblTop = sh * 0.17
+tblWidth = content_w
+tblHeight = sh * 0.46
+
+Set shapeTable = sld.Shapes.AddTable(6, 3, tblLeft, tblTop, tblWidth, tblHeight)
+Set tbl = shapeTable.Table
+
+tbl.Columns(1).Width = tblWidth * 0.18
+tbl.Columns(2).Width = tblWidth * 0.41
+tbl.Columns(3).Width = tblWidth * 0.41
+
+Set c1 = tbl.Cell(1, 1).Shape
+c1.Fill.Solid
+c1.Fill.ForeColor.RGB = RGB(51, 65, 85)
+c1.TextFrame.TextRange.Text = "比較観点"
+c1.TextFrame.TextRange.Font.Name = "BIZ UDゴシック"
+c1.TextFrame.TextRange.Font.Size = 11
+c1.TextFrame.TextRange.Font.Bold = msoTrue
+c1.TextFrame.TextRange.Font.Color.RGB = RGB(255, 255, 255)
+c1.TextFrame.TextRange.ParagraphFormat.Alignment = ppAlignCenter
+c1.TextFrame.VerticalAnchor = msoAnchorMiddle
+
+Set c2 = tbl.Cell(1, 2).Shape
+c2.Fill.Solid
+c2.Fill.ForeColor.RGB = RGB(30, 64, 175)
+c2.TextFrame.TextRange.Text = "MCP (Model Context Protocol)"
+c2.TextFrame.TextRange.Font.Name = "BIZ UDゴシック"
+c2.TextFrame.TextRange.Font.Size = 11.5
+c2.TextFrame.TextRange.Font.Bold = msoTrue
+c2.TextFrame.TextRange.Font.Color.RGB = RGB(255, 255, 255)
+c2.TextFrame.TextRange.ParagraphFormat.Alignment = ppAlignCenter
+c2.TextFrame.VerticalAnchor = msoAnchorMiddle
+
+Set c3 = tbl.Cell(1, 3).Shape
+c3.Fill.Solid
+c3.Fill.ForeColor.RGB = RGB(21, 128, 61)
+c3.TextFrame.TextRange.Text = "Skills (Agent Skills等)"
+c3.TextFrame.TextRange.Font.Name = "BIZ UDゴシック"
+c3.TextFrame.TextRange.Font.Size = 11.5
+c3.TextFrame.TextRange.Font.Bold = msoTrue
+c3.TextFrame.TextRange.Font.Color.RGB = RGB(255, 255, 255)
+c3.TextFrame.TextRange.ParagraphFormat.Alignment = ppAlignCenter
+c3.TextFrame.VerticalAnchor = msoAnchorMiddle
+
+Dim aspects(4)
+Dim mcpData(4)
+Dim skillsData(4)
+
+aspects(0) = "1. 定義・位置づけ"
+mcpData(0) = "外部データやツールとLLMを接続するための標準プロトコル（基盤レイヤー）"
+skillsData(0) = "エージェントに特定のタスクや手順を実行させるための手順集・機能拡張（アプリケーションレイヤー）"
+
+aspects(1) = "2. 主な目的"
+mcpData(1) = "ツール・データソース接続の共通化・再利用性の向上"
+skillsData(1) = "特定ドメインのタスク実行手順（ワークフロー）の自動化・高度化"
+
+aspects(2) = "3. 拡張性・標準化"
+mcpData(2) = "高い（共通規格に従うことで、一度作れば多様なクライアントで利用可能）"
+skillsData(2) = "プラットフォーム/フレームワーク固有の依存度が比較的高い"
+
+aspects(3) = "4. 実装・制御の単位"
+mcpData(3) = "インターフェース、データ形式、認証・リソース取得"
+skillsData(3) = "プロンプト群、コード実行ブロック、ツール利用ルール"
+
+aspects(4) = "5. 適用シーン・使い分け"
+mcpData(4) = "DBや外部SaaS（GitHub, Slack等）との標準接続経路を確立したい時"
+skillsData(4) = "専門的な作業手順（リサーチ、データ解析など）をLLMに再現させたい時"
+
+For i = 0 To 4
+    r = i + 2
+    
+    Set cellAsp = tbl.Cell(r, 1).Shape
+    cellAsp.Fill.Solid
+    cellAsp.Fill.ForeColor.RGB = RGB(241, 245, 249)
+    cellAsp.TextFrame.TextRange.Text = aspects(i)
+    cellAsp.TextFrame.TextRange.Font.Name = "BIZ UDゴシック"
+    cellAsp.TextFrame.TextRange.Font.Size = 9.5
+    cellAsp.TextFrame.TextRange.Font.Bold = msoTrue
+    cellAsp.TextFrame.TextRange.Font.Color.RGB = RGB(30, 41, 59)
+    cellAsp.TextFrame.TextRange.ParagraphFormat.Alignment = ppAlignCenter
+    cellAsp.TextFrame.VerticalAnchor = msoAnchorMiddle
+    cellAsp.TextFrame.MarginLeft = 6
+    cellAsp.TextFrame.MarginRight = 6
+    
+    Set cellMCP = tbl.Cell(r, 2).Shape
+    cellMCP.Fill.Solid
+    If i Mod 2 = 0 Then
+        cellMCP.Fill.ForeColor.RGB = RGB(239, 246, 255)
+    Else
+        cellMCP.Fill.ForeColor.RGB = RGB(248, 250, 255)
+    End If
+    cellMCP.TextFrame.TextRange.Text = mcpData(i)
+    cellMCP.TextFrame.TextRange.Font.Name = "BIZ UDゴシック"
+    cellMCP.TextFrame.TextRange.Font.Size = 9
+    cellMCP.TextFrame.TextRange.Font.Bold = msoFalse
+    cellMCP.TextFrame.TextRange.Font.Color.RGB = RGB(30, 41, 59)
+    cellMCP.TextFrame.TextRange.ParagraphFormat.Alignment = ppAlignLeft
+    cellMCP.TextFrame.VerticalAnchor = msoAnchorMiddle
+    cellMCP.TextFrame.MarginLeft = 8
+    cellMCP.TextFrame.MarginRight = 8
+    
+    Set cellSkill = tbl.Cell(r, 3).Shape
+    cellSkill.Fill.Solid
+    If i Mod 2 = 0 Then
+        cellSkill.Fill.ForeColor.RGB = RGB(240, 253, 244)
+    Else
+        cellSkill.Fill.ForeColor.RGB = RGB(248, 253, 249)
+    End If
+    cellSkill.TextFrame.TextRange.Text = skillsData(i)
+    cellSkill.TextFrame.TextRange.Font.Name = "BIZ UDゴシック"
+    cellSkill.TextFrame.TextRange.Font.Size = 9
+    cellSkill.TextFrame.TextRange.Font.Bold = msoFalse
+    cellSkill.TextFrame.TextRange.Font.Color.RGB = RGB(30, 41, 59)
+    cellSkill.TextFrame.TextRange.ParagraphFormat.Alignment = ppAlignLeft
+    cellSkill.TextFrame.VerticalAnchor = msoAnchorMiddle
+    cellSkill.TextFrame.MarginLeft = 8
+    cellSkill.TextFrame.MarginRight = 8
+Next
+
+footerTop = sh * 0.655
+footerHeight = sh * 0.31
+
+diagLeft = margin_x
+diagWidth = content_w * 0.485
+
+Set diagTitle = sld.Shapes.AddTextbox(1, diagLeft, footerTop, diagWidth, 18)
+Set trDiagTitle = diagTitle.TextFrame.TextRange
+trDiagTitle.Text = "【アーキテクチャのレイヤー構造】"
+trDiagTitle.Font.Name = "BIZ UDゴシック"
+trDiagTitle.Font.Size = 10.5
+trDiagTitle.Font.Bold = msoTrue
+trDiagTitle.Font.Color.RGB = RGB(30, 41, 59)
+diagTitle.TextFrame.MarginLeft = 0
+diagTitle.TextFrame.MarginTop = 0
+
+layerTopStart = footerTop + 22
+layerHeight = 27
+arrowHeight = 12
+
+Set layer1 = sld.Shapes.AddShape(msoShapeRoundedRectangle, diagLeft, layerTopStart, diagWidth, layerHeight)
+layer1.Fill.Solid
+layer1.Fill.ForeColor.RGB = RGB(240, 253, 244)
+layer1.Line.ForeColor.RGB = RGB(34, 197, 94)
+layer1.Line.Weight = 1.2
+Set trL1 = layer1.TextFrame.TextRange
+trL1.Text = "[ 上層 ] Skills（タスク手順・指示・ワークフロー）"
+trL1.Font.Name = "BIZ UDゴシック"
+trL1.Font.Size = 9.5
+trL1.Font.Bold = msoTrue
+trL1.Font.Color.RGB = RGB(21, 128, 61)
+trL1.ParagraphFormat.Alignment = ppAlignCenter
+layer1.TextFrame.VerticalAnchor = msoAnchorMiddle
+
+Set arrow1 = sld.Shapes.AddTextbox(1, diagLeft, layerTopStart + layerHeight, diagWidth, arrowHeight)
+Set trArr1 = arrow1.TextFrame.TextRange
+trArr1.Text = "▼"
+trArr1.Font.Name = "BIZ UDゴシック"
+trArr1.Font.Size = 8.5
+trArr1.Font.Color.RGB = RGB(100, 116, 139)
+trArr1.ParagraphFormat.Alignment = ppAlignCenter
+arrow1.TextFrame.MarginTop = 0
+arrow1.TextFrame.MarginBottom = 0
+
+layer2Top = layerTopStart + layerHeight + arrowHeight
+Set layer2 = sld.Shapes.AddShape(msoShapeRoundedRectangle, diagLeft, layer2Top, diagWidth, layerHeight)
+layer2.Fill.Solid
+layer2.Fill.ForeColor.RGB = RGB(239, 246, 255)
+layer2.Line.ForeColor.RGB = RGB(59, 130, 246)
+layer2.Line.Weight = 1.2
+Set trL2 = layer2.TextFrame.TextRange
+trL2.Text = "[ 中層 ] MCP（標準接続プロトコル・インターフェース）"
+trL2.Font.Name = "BIZ UDゴシック"
+trL2.Font.Size = 9.5
+trL2.Font.Bold = msoTrue
+trL2.Font.Color.RGB = RGB(30, 64, 175)
+trL2.ParagraphFormat.Alignment = ppAlignCenter
+layer2.TextFrame.VerticalAnchor = msoAnchorMiddle
+
+Set arrow2 = sld.Shapes.AddTextbox(1, diagLeft, layer2Top + layerHeight, diagWidth, arrowHeight)
+Set trArr2 = arrow2.TextFrame.TextRange
+trArr2.Text = "▼"
+trArr2.Font.Name = "BIZ UDゴシック"
+trArr2.Font.Size = 8.5
+trArr2.Font.Color.RGB = RGB(100, 116, 139)
+trArr2.ParagraphFormat.Alignment = ppAlignCenter
+arrow2.TextFrame.MarginTop = 0
+arrow2.TextFrame.MarginBottom = 0
+
+layer3Top = layer2Top + layerHeight + arrowHeight
+Set layer3 = sld.Shapes.AddShape(msoShapeRoundedRectangle, diagLeft, layer3Top, diagWidth, layerHeight)
+layer3.Fill.Solid
+layer3.Fill.ForeColor.RGB = RGB(241, 245, 249)
+layer3.Line.ForeColor.RGB = RGB(148, 163, 184)
+layer3.Line.Weight = 1.2
+Set trL3 = layer3.TextFrame.TextRange
+trL3.Text = "[ 下層 ] 外部システム / DB / API / Tools"
+trL3.Font.Name = "BIZ UDゴシック"
+trL3.Font.Size = 9.5
+trL3.Font.Bold = msoTrue
+trL3.Font.Color.RGB = RGB(51, 65, 85)
+trL3.ParagraphFormat.Alignment = ppAlignCenter
+layer3.TextFrame.VerticalAnchor = msoAnchorMiddle
+
+sumLeft = margin_x + content_w * 0.505
+sumWidth = content_w * 0.495
+sumTop = footerTop
+sumHeight = (layer3Top + layerHeight) - footerTop
+
+Set sumCard = sld.Shapes.AddShape(msoShapeRoundedRectangle, sumLeft, sumTop, sumWidth, sumHeight)
+sumCard.Fill.Solid
+sumCard.Fill.ForeColor.RGB = RGB(255, 247, 237)
+sumCard.Line.ForeColor.RGB = RGB(251, 146, 60)
+sumCard.Line.Weight = 1.2
+
+Set trSum = sumCard.TextFrame.TextRange
+trSum.Text = "【結論】 MCPとSkillsの補完関係・使い分け指針" & vbCrLf & _
+             "● MCP（基盤接続）: DBやSaaS等のデータ・ツール接続を標準化・共通化" & vbCrLf & _
+             "● Skills（タスク拡張）: 専門的な手順やワークフローを定義し自動化" & vbCrLf & _
+             "● 実務指針: MCPで「接続基盤」を構築し、その上でSkillsを活用して「柔軟なエージェント機能」を実現する"
+
+trSum.Font.Name = "BIZ UDゴシック"
+trSum.Font.Size = 9
+trSum.Font.Color.RGB = RGB(30, 41, 59)
+sumCard.TextFrame.MarginLeft = 10
+sumCard.TextFrame.MarginRight = 10
+sumCard.TextFrame.MarginTop = 8
+sumCard.TextFrame.MarginBottom = 8
+sumCard.TextFrame.VerticalAnchor = msoAnchorMiddle
+
+Set p1 = trSum.Paragraphs(1)
+p1.Font.Size = 10.5
+p1.Font.Bold = msoTrue
+p1.Font.Color.RGB = RGB(194, 65, 12)
+
+Set p4 = trSum.Paragraphs(4)
+p4.Font.Bold = msoTrue
+p4.Font.Color.RGB = RGB(154, 52, 18)
