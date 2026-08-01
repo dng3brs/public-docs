@@ -1,0 +1,4 @@
+interface:
+  display_name: "Slide SVG Generator"
+  short_description: "指定された要件に従ってスライド用図解SVGデータを生成し、指定された .svg ファイル名で保存します。"
+  default_prompt: "Use $slide-svg-gen to create an SVG file from my slide diagram requirements."

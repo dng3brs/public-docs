@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="900" height="900" viewBox="0 0 900 900" role="img" aria-labelledby="title description">
+  <title id="title">PDCAサイクル</title>
+  <desc id="description">計画、実行、評価、改善を繰り返し、継続的に成果を高めるPDCAサイクルの図</desc>
+  <defs>
+    <marker id="arrow-primary" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 8 4 L 0 8 Z" fill="#6485C1"/>
+    </marker>
+  </defs>
+
+  <rect width="900" height="900" fill="#FFFFFF"/>
+
+  <g id="heading" font-family="BIZ UDPゴシック, Arial, sans-serif" fill="#2F343B">
+    <text x="450" y="72" text-anchor="middle" font-size="32" font-weight="700">PDCAサイクル</text>
+    <text x="450" y="112" text-anchor="middle" font-size="18" font-weight="400" fill="#5B6470">4つの段階を繰り返し、継続的に成果を高める</text>
+  </g>
+
+  <g id="cycle-arrows" fill="none" stroke="#6485C1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-primary)">
+    <path d="M 560 352 C 592 376, 608 400, 616 432"/>
+    <path d="M 616 472 C 608 504, 592 536, 560 560"/>
+    <path d="M 340 560 C 308 536, 292 504, 284 472"/>
+    <path d="M 284 432 C 292 400, 308 376, 340 352"/>
+  </g>
+
+  <g id="cycle-core" font-family="BIZ UDPゴシック, Arial, sans-serif">
+    <circle cx="450" cy="456" r="104" fill="#F4F6F9" stroke="#D5DAE2" stroke-width="2"/>
+    <svg x="430" y="392" width="40" height="40" viewBox="0 -960 960 960" aria-hidden="true">
+      <path fill="#6485C1" d="M201-344.46q-16.92-32.54-23.96-65.77Q170-443.46 170-478q0-127.54 91.23-218.96T480-788.38h57.62l-85.77-85.77 29.77-29.77 138.23 138.23-138.23 137.84-30.39-30.38L536-743h-56q-109.31 0-186.96 77.85-77.66 77.84-77.66 187.15 0 27.08 5.12 52.69 5.11 25.62 13.11 48.23L201-344.46ZM477.15-53.85 338.92-192.08l138.23-137.84 29.39 29.38-85.39 85.77H480q109.31 0 186.96-77.85 77.66-77.84 77.66-187.15 0-27.08-4.62-52.69-4.61-25.62-14.23-48.23l32.61-32.62q16.54 32.54 24.08 65.77 7.54 33.23 7.54 67.77 0 127.54-91.23 218.96T480-169.39h-58.85l85.39 85.77-29.39 29.77Z"/>
+    </svg>
+    <text x="450" y="464" text-anchor="middle" font-size="24" font-weight="700" fill="#2F343B">継続的改善</text>
+    <text x="450" y="496" text-anchor="middle" font-size="16" font-weight="400" fill="#5B6470">循環して次へつなぐ</text>
+  </g>
+
+  <g id="plan-card" font-family="BIZ UDPゴシック, Arial, sans-serif">
+    <rect x="304" y="152" width="288" height="152" rx="8" fill="#F8FAFC" stroke="#6485C1" stroke-width="2"/>
+    <rect x="304" y="152" width="288" height="8" rx="4" fill="#6485C1"/>
+    <svg x="328" y="184" width="32" height="32" viewBox="0 -960 960 960" aria-hidden="true">
+      <path fill="#6485C1" d="M197.69-100q-23.53 0-40.61-17.08T140-157.69v-579.23q0-23.53 17.08-40.61t40.61-17.08h73.85v-70h50.38v70h317.69v-70h49.23v70h73.47q23.53 0 40.61 17.08T820-736.92v579.23q0 23.53-17.08 40.61T762.31-100H197.69Zm0-45.39h564.62q4.61 0 8.46-3.84 3.84-3.85 3.84-8.46V-555H185.39v397.31q0 4.61 3.84 8.46 3.85 3.84 8.46 3.84Zm-12.3-454.99h589.22v-136.54q0-4.62-3.84-8.46-3.85-3.85-8.46-3.85H197.69q-4.61 0-8.46 3.85-3.84 3.84-3.84 8.46v136.54Z"/>
+    </svg>
+    <text x="376" y="208" font-size="24" font-weight="700" fill="#2F343B">Plan｜計画</text>
+    <text x="328" y="248" font-size="18" font-weight="500" fill="#5B6470">目標と達成方法を定める</text>
+    <text x="328" y="280" font-size="16" font-weight="400" fill="#8E97A3">現状把握・目標設定・計画策定</text>
+  </g>
+
+  <g id="do-card" font-family="BIZ UDPゴシック, Arial, sans-serif">
+    <rect x="600" y="376" width="232" height="160" rx="8" fill="#F8FAFC" stroke="#5FA56D" stroke-width="2"/>
+    <rect x="600" y="376" width="232" height="8" rx="4" fill="#5FA56D"/>
+    <svg x="624" y="408" width="32" height="32" viewBox="0 -960 960 960" aria-hidden="true">
+      <path fill="#5FA56D" d="M340-238.39v-487.68l383.07 243.84L340-238.39Zm45.39-243.84Zm0 161 253.99-161-253.99-161v322Z"/>
+    </svg>
+    <text x="672" y="432" font-size="24" font-weight="700" fill="#2F343B">Do｜実行</text>
+    <text x="624" y="472" font-size="18" font-weight="500" fill="#5B6470">計画を実行する</text>
+    <text x="624" y="504" font-size="16" font-weight="400" fill="#8E97A3">記録を残しながら</text>
+  </g>
+
+  <g id="check-card" font-family="BIZ UDPゴシック, Arial, sans-serif">
+    <rect x="304" y="608" width="288" height="152" rx="8" fill="#F8FAFC" stroke="#E3A64A" stroke-width="2"/>
+    <rect x="304" y="608" width="288" height="8" rx="4" fill="#E3A64A"/>
+    <svg x="328" y="640" width="32" height="32" viewBox="0 -960 960 960" aria-hidden="true">
+      <path fill="#E3A64A" d="M152-140q-23.53 0-40.61-17.08t-17.08-40.61v-564.62q0-23.53 17.08-40.61T152-820h656q23.53 0 40.61 17.08t17.08 40.61v564.62q0 23.53-17.08 40.61T808-140H152Zm0-45.39h656q4.61 0 8.46-3.84 3.85-3.85 3.85-8.46v-564.62q0-4.61-3.85-8.46-3.85-3.84-8.46-3.84H152q-4.61 0-8.46 3.84-3.85 3.85-3.85 8.46v564.62q0 4.61 3.85 8.46 3.85 3.84 8.46 3.84ZM210-290h180v-60H210v60Zm372-84.23L765.77-558 723-600.77l-141 142-57-57L483.23-473 582-374.23ZM210-450h180v-60H210v60Zm0-160h180v-60H210v60Z"/>
+    </svg>
+    <text x="376" y="664" font-size="24" font-weight="700" fill="#2F343B">Check｜評価</text>
+    <text x="328" y="704" font-size="18" font-weight="500" fill="#5B6470">結果を目標と照らし合わせる</text>
+    <text x="328" y="736" font-size="16" font-weight="400" fill="#8E97A3">データ確認・要因分析</text>
+  </g>
+
+  <g id="act-card" font-family="BIZ UDPゴシック, Arial, sans-serif">
+    <rect x="68" y="376" width="232" height="160" rx="8" fill="#F8FAFC" stroke="#8A6CCF" stroke-width="2"/>
+    <rect x="68" y="376" width="232" height="8" rx="4" fill="#8A6CCF"/>
+    <svg x="92" y="408" width="32" height="32" viewBox="0 -960 960 960" aria-hidden="true">
+      <path fill="#8A6CCF" d="M201-344.46q-16.92-32.54-23.96-65.77Q170-443.46 170-478q0-127.54 91.23-218.96T480-788.38h57.62l-85.77-85.77 29.77-29.77 138.23 138.23-138.23 137.84-30.39-30.38L536-743h-56q-109.31 0-186.96 77.85-77.66 77.84-77.66 187.15 0 27.08 5.12 52.69 5.11 25.62 13.11 48.23L201-344.46ZM477.15-53.85 338.92-192.08l138.23-137.84 29.39 29.38-85.39 85.77H480q109.31 0 186.96-77.85 77.66-77.84 77.66-187.15 0-27.08-4.62-52.69-4.61-25.62-14.23-48.23l32.61-32.62q16.54 32.54 24.08 65.77 7.54 33.23 7.54 67.77 0 127.54-91.23 218.96T480-169.39h-58.85l85.39 85.77-29.39 29.77Z"/>
+    </svg>
+    <text x="140" y="432" font-size="24" font-weight="700" fill="#2F343B">Act｜改善</text>
+    <text x="92" y="472" font-size="18" font-weight="500" fill="#5B6470">改善策を反映する</text>
+    <text x="92" y="504" font-size="16" font-weight="400" fill="#8E97A3">学びを次の計画へ</text>
+  </g>
+
+  <g id="footer-note" font-family="BIZ UDPゴシック, Arial, sans-serif">
+    <rect x="176" y="816" width="548" height="48" rx="8" fill="#F4F6F9" stroke="#D5DAE2" stroke-width="1"/>
+    <text x="450" y="848" text-anchor="middle" font-size="16" font-weight="500" fill="#5B6470">一度で終わらせず、学びを次の Plan へつなげる</text>
+  </g>
+</svg>
