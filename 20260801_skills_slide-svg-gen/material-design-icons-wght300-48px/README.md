@@ -1,4 +1,4 @@
-Codex CLIを事項する際のプロジェクトフォルダ直下にこのフォルダを配置
+Codex CLIを実行する際のプロジェクトフォルダ直下にこのフォルダを配置
 
 フォルダ内には[Material Symbols](https://fonts.google.com/icons)から取得したsvgファイルを格納しておくことで、SVGのレイアウトに利用可能。
 
