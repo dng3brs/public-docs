@@ -79,7 +79,7 @@ SVGとWSFを順次作成して
 
 ## 🛠️ 再現手順
 ### 前提環境
-- **使用ツール：** OpenAI Codex CLI（gpt-5.6-sol low）
+- **使用ツール：** OpenAI Codex CLI（gpt-5.6-sol medium）
 - **環境：** wslc
 ### 手順
 - [.agents](.agents)フォルダをプロジェクトフォルダに配置（2つのAgent Skills定義を含む）
