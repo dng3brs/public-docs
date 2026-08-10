@@ -1,0 +1,4 @@
+interface:
+  display_name: "Slide PowerPoint wsf Generator"
+  short_description: "指定された要件に従ってPowerPointスライド編集VBScriptスクリプト生成し、指定された .wsf ファイル名で保存します。"
+  default_prompt: "Use $slide-powerpoint-wsf-gen to create an WSF file from my slide requirements."
