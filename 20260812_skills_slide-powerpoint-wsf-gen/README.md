@@ -35,7 +35,7 @@
 ### 資材説明（エージェント実行時のプロジェクトフォルダに配置）
 
 - [.agents](.agents)フォルダ
-  - 手順の中で利用されるAgent Skillsを含む
+  - 手順の中で利用されるAgent Skillsとガイドラインを含む
 - [design_template](design_template)フォルダ
   - スライド設計をドキュメント化する際のテンプレートを含む
 - [prompts](prompts)フォルダ
