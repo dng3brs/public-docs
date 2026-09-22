@@ -1,11 +1,17 @@
 {
   "name": "public-docs",
-  "build": {
-    "dockerfile": "Dockerfile",
-    "context": ".."
-  },
+  "image": "debianc:latest",
+  "runArgs": ["--name", "public-docs"],
   "workspaceMount": "source=.,target=/workspaces,type=bind,consistency=cached",
   "workspaceFolder": "/workspaces",
+  "forwardPorts": [3000], // CHANGE_IT
   "customizations": {
+    "vscode": {
+      "settings": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true
+      },
+      "extensions": ["dbaeumer.vscode-eslint", "esbenp.prettier-vscode"]
+    }
   }
 }
