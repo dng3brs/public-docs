@@ -5,6 +5,9 @@
 
 FROM debian:13-slim
 
+ENV LANG=C.UTF-8 \
+    TZ=Asia/Tokyo
+
 # Base
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
@@ -24,6 +27,7 @@ RUN apt-get update \
         wget \
     && rm -rf /var/lib/apt/lists/* \
     && bash -c 'echo >> ~/.bashrc' \
+    && bash -c 'echo "export PATH=\"\$PATH:~/.local/bin\"" >> ~/.bashrc' \
     && bash -c 'echo "export LS_OPTIONS=\"--color=auto\"" >> ~/.bashrc' \
     && bash -c 'echo "alias ls=\"ls \$LS_OPTIONS\"" >> ~/.bashrc' \
     && bash -c 'echo "alias ll=\"ls \$LS_OPTIONS -l\"" >> ~/.bashrc' \
