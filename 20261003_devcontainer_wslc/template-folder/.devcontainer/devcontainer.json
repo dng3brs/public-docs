@@ -1,0 +1,16 @@
+{
+  "name": "change-this-name",
+  "image": "base-for-devcontainer:custom",
+  "runArgs": ["--name", "change-this-name"],
+  "workspaceMount": "source=.,target=/workspaces,type=bind,consistency=cached",
+  "workspaceFolder": "/workspaces",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true
+      },
+      "extensions": ["dbaeumer.vscode-eslint", "esbenp.prettier-vscode"]
+    }
+  }
+}
