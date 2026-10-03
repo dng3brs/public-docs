@@ -1,10 +1,9 @@
 {
   "name": "public-docs",
-  "image": "debianc:latest",
+  "image": "base-for-devcontainer:custom",
   "runArgs": ["--name", "public-docs"],
   "workspaceMount": "source=.,target=/workspaces,type=bind,consistency=cached",
   "workspaceFolder": "/workspaces",
-  "forwardPorts": [3000], // CHANGE_IT
   "customizations": {
     "vscode": {
       "settings": {
