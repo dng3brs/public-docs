@@ -10,6 +10,8 @@
 
 ---
 
+## [実行デモ動画（YouTube）](https://youtu.be/0opgQmcvkiI)
+
 ## 🎬 生成させてみた例
 
 ### CUAにさせたいこと
